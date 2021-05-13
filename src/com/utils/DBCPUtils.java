@@ -12,6 +12,7 @@ import java.util.Properties;
 
 public class DBCPUtils {
     private static DataSource dataSource;
+
     //加载配置文件，创建数据库连接池
     static {
         try {
@@ -39,21 +40,22 @@ public class DBCPUtils {
     }
 
     // 释放连接，被连接池收回（Soledad:好像不需要运行释放连接）
-    public static void releaseConnection(Connection conn, PreparedStatement pstmt, ResultSet rs){
+    public static void releaseConnection(Connection conn, PreparedStatement pstmt, ResultSet rs) {
         try {
-            if(rs != null ) {
+            if (rs != null) {
                 rs.close();
             }
-            if(pstmt != null ) {
+            if (pstmt != null) {
                 pstmt.close();
             }
-            if(conn != null ) {
+            if (conn != null) {
                 conn.close();
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     // 利用main函数测一下是否连接成功
     public static void main(String[] args) {
         Connection conn = null;
@@ -61,10 +63,10 @@ public class DBCPUtils {
         ResultSet rs = null;
         try {
             conn = DBCPUtils.getConnection();
-            pstmt = conn.prepareStatement("select * from student");
+            pstmt = conn.prepareStatement("select * from user");
             rs = pstmt.executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getString(1) + " " + rs.getString(2) + " ");
+                System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
             }
         } catch (Exception e) {
             e.printStackTrace();
