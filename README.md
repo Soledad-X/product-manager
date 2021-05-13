@@ -1,5 +1,13 @@
 # 产品与销售管理系统
 
+### git操作
+
+克隆远程代码
+
+1. 找一处文件路径,右键git bash here
+
+2. 输入git clone https://gitee.com/soledad-x/product-manager.git
+
 ### 配置
 
 - SDK：换成自己电脑中的java(建议15.0.1)
@@ -20,4 +28,3 @@
 ### 右键Servlet创建
 
 ![右键Servlet](https://gitee.com/soledad-x/pic-go/raw/master/Gitee图床/右键Servlet.png)
-
